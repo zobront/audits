@@ -39,15 +39,15 @@ After completion of the fixes, the TK commit was reviewed.
 | ID     | Title                        | Severity      |
 | ------ | ---------------------------- | ------------- |
 | [C-01] | [All funds can be stolen from the SAM contract](https://github.com/zobront/audits/blob/main/reports/sound.md#c-01-all-funds-can-be-stolen-from-the-sam-contract) | Critical |
-| [H-01] | Golden Egg will continue to change throughout SAM | High |
-| [M-01] | Artist can frontrun transactions to extract additional fees | Medium |
-| [M-02] | MEV risk in periods of high volatility | Medium |
-| [M-03] | Edition owner can rug by inflating token quantity after mint begins | Medium |
-| [M-04] | Edition owner can manipulate Golden Egg by ending auction early | Medium |
-| [M-05] | Artist can set GoldenEggFee to zero, rugging winner | Medium |
-| [L-01] | mintRandomness() function does not use all intended randomness | Low |
-| [L-02] | Open + Bonding Curve settings will never successfully transition edition to SAM | Low |
-| [N-01] | Reentrancy Analysis | Non-Issue |
+| [H-01] | [Golden Egg will continue to change throughout SAM](https://github.com/zobront/audits/blob/main/reports/sound.md#h-01-golden-egg-will-continue-to-change-throughout-sam) | High |
+| [M-01] | [Artist can frontrun transactions to extract additional fees](https://github.com/zobront/audits/blob/main/reports/sound.md#m-01-artist-can-frontrun-transactions-to-extract-additional-fees) | Medium |
+| [M-02] | [MEV risk in periods of high volatility](https://github.com/zobront/audits/blob/main/reports/sound.md#m-02-mev-risk-in-periods-of-high-volatility) | Medium |
+| [M-03] | [Edition owner can rug by inflating token quantity after mint begins](https://github.com/zobront/audits/blob/main/reports/sound.md#m-03-edition-owner-can-rug-by-inflating-token-quantity-after-mint-begins) | Medium |
+| [M-04] | [Edition owner can manipulate Golden Egg by ending auction early](https://github.com/zobront/audits/blob/main/reports/sound.md#m-04-edition-owner-can-manipulate-golden-egg-by-ending-auction-early) | Medium |
+| [M-05] | [Artist can set GoldenEggFee to zero, rugging winner](https://github.com/zobront/audits/blob/main/reports/sound.md#m-05-artist-can-set-goldeneggfee-to-zero-rugging-winner) | Medium |
+| [L-01] | [mintRandomness() function does not use all intended randomness](https://github.com/zobront/audits/blob/main/reports/sound.md#l-01-mintrandomness-function-does-not-use-all-intended-randomness) | Low |
+| [L-02] | [Open + Bonding Curve settings will never successfully transition edition to SAM](https://github.com/zobront/audits/blob/main/reports/sound.md#l-02-open--bonding-curve-settings-will-never-successfully-transition-edition-to-sam) | Low |
+| [N-01] | [Reentrancy Analysis](https://github.com/zobront/audits/blob/main/reports/sound.md#n-01-reentrancy-analysis) | Non-Issue |
 
 # Detailed Findings
 
