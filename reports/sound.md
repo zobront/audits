@@ -161,8 +161,6 @@ Confirmed in commit [cf9f6bd3e59d41ed60f654fa3efe28d0fcbfaea5](https://github.co
 
 ## [H-01] Golden Egg will continue to change throughout SAM
 
-_[Note: This issue was discovered by another researcher before I wrote up submissions, and the team made a fix in #17 during the audit. I am including it here for completeness, as the issue was present in commit 3b3de9, and to ensure that the fix is reviewed as a part of the fix review phase.]_
-
 When a fixed price sale ends and a SAM begins, the Golden Egg is supposed to be locked. The winner of the Golden Egg is confirmed, and this user is paid a percentage of all sales from the bonding curve.
 
 In order to determine who to send these fees to, SAM.sol calls `goldenEggFeeRecipient()`, which:
@@ -324,7 +322,7 @@ Part of this fix included removing the `onlyBeforeMintConcluded` modifier from t
 
 > Since we can't add a SAM to the edition once initial mints have concluded, the onlyBeforeMintConcluded modifier here is redundant.
 
-Upon review, it was shared that this modifier should not be removed:
+Upon review, auditor shared that this modifier should not be removed:
 
 > This is a small edge case, but there's no guarantee that create() will be called before the mint is concluded.
 
@@ -528,3 +526,5 @@ No matter which path the code takes, there will be at most 1 successful external
 ### Review
 
 The protocol decided to keep all reentrancy guards in place, as an extra safety precaution.
+
+> Thanks so much for your thorough analysis! Let's just stay on the safe side. In case there is something we might have missed.
