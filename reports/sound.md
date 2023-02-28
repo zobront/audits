@@ -6,7 +6,7 @@
             <h1>Sound.xyz Audit Report</h1>
             <h2>Sound Automated Market (Bonding Curve) Mechanism</h2>
             <p>Prepared by: Zach Obront, Independent Security Researcher</p>
-            <p>Date: February 22nd to March 1, 2023</p>
+            <p>Date: Feb 22 to March 1, 2023</p>
         </td>
     </tr>
 </table>
