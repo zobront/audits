@@ -32,9 +32,9 @@ After completion of the fixes, the [TK](tk.com) commit was reviewed.
 
 # Summary of Findings
 
-| ID     | Title                        | Severity      |
-| ------ | ---------------------------- | ------------- |
-| [X-01] | Title | Severity |
+| ID     | Title                        | Severity      | Fixed |
+| ------ | ---------------------------- | ------------- | ----- |
+| [X-01] | Title | Severity |  ✓ |
 
 # Detailed Findings
 
