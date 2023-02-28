@@ -1,13 +1,13 @@
 <table>
     <tr><th></th><th></th></tr>
     <tr>
-    <td><img src="../logos/sound.jpg"/ ></td>
-    <td><h1>Sound.xyz Audit Report</h1></td>
+    <td><img src="../logos/sound.jpg" width="250" height="250" /></td>
+    <td><h1>Sound.xyz Audit Report<br/></h1><h2>Sound Automated Market (Bonding Curve) Mechanism</h2></td>
     </tr>
 </table>
 
 
-## Sound Automated Market (Bonding Curve) Mechanism
+##
 
 
 Prepared by: Zach Obront, Independent Security Researcher
