@@ -6,10 +6,10 @@ this repo holds some auditing projects i've done that are allowed to be shared p
 
 | project | team | results | report |
 | ---- | ---- | ----------- | ---------|
-| soundxyz | solo | 9 issues, 1 crit | [report](reports/sound.md) |
-| optimism bedrock | sherlock (w/ [trust](https://twitter.com/trust__90)) | 1st place ($180k) | tbd |
-| dyad | solo | 11 issues, 3 crits | [report](reports/dyad.pdf) |
-| astaria | spearbit (w/ sawmon, ndev, blockdev) | 183 issues, 6 crits | [report](reports/astaria.pdf) |
+| [soundxyz](https://sound.xyz/) | solo | 9 issues, 1 crit | [report](reports/sound.md) |
+| [optimism bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) | sherlock (w/ [trust](https://twitter.com/trust__90)) | 1st place ($180k) | tbd |
+| [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | solo | 11 issues, 3 crits | [report](reports/dyad.pdf) |
+| [astaria](https://astaria.xyz/) | spearbit (w/ sawmon, ndev, blockdev) | 183 issues, 6 crits | [report](reports/astaria.pdf) |
 
 
 ### availability
