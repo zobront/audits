@@ -1,20 +1,15 @@
 <table>
     <tr><th></th><th></th></tr>
     <tr>
-    <td><img src="../logos/sound.jpg" width="250" height="250" /></td>
-    <td><h1>Sound.xyz Audit Report<br/></h1><h2>Sound Automated Market (Bonding Curve) Mechanism</h2></td>
+        <td><img src="../logos/sound.jpg" width="250" height="250" /></td>
+        <td>
+            <h1>Sound.xyz Audit Report</h1><br/>
+            <h2>Sound Automated Market (Bonding Curve) Mechanism</h2><br/>
+            <p>Prepared by: Zach Obront, Independent Security Researcher</p>
+            <p>Date: February 22nd to March 1, 2023</p>
+        </td>
     </tr>
 </table>
-
-
-##
-
-
-Prepared by: Zach Obront, Independent Security Researcher
-
-Date: February 22nd to March 1, 2023
-
-<hr />
 
 # About **Sound.xyz**
 
