@@ -38,7 +38,7 @@ After completion of the fixes, the TK commit was reviewed.
 
 | ID     | Title                        | Severity      |
 | ------ | ---------------------------- | ------------- |
-| [C-01] | All funds can be stolen from the SAM contract | Critical |
+| [C-01] | [All funds can be stolen from the SAM contract](https://github.com/zobront/audits/blob/main/reports/sound.md#c-01-all-funds-can-be-stolen-from-the-sam-contract) | Critical |
 | [H-01] | Golden Egg will continue to change throughout SAM | High |
 | [M-01] | Artist can frontrun transactions to extract additional fees | Medium |
 | [M-02] | MEV risk in periods of high volatility | Medium |
