@@ -1,91 +1,47 @@
-# Introduction
-
-A time-boxed security review of the **protocol name** protocol was done by **pashov**, with a focus on the security aspects of the application's implementation.
-
-# Disclaimer
-
-A smart contract security review can never verify the complete absence of vulnerabilities. This is a time, resource and expertise bound effort where I try to find as many vulnerabilities as possible. I can not guarantee 100% security after the review or even if the review will find any problems with your smart contracts.
-
-# About **pashov**
-
-Krum Pashov, or **pashov**, is an independent smart contract security researcher. Having found numerous security vulnerabilities in various protocols, he does his best to contribute to the blockchain ecosystem and its protocols by putting time and effort into security research & reviews. Reach out on Twitter [@pashovkrum](https://twitter.com/pashovkrum)
+<table>
+    <tr><th></th><th></th></tr>
+    <tr>
+        <td><img src="../logos/TK.jpg" width="250" height="250" /></td>
+        <td>
+            <h1>TK Audit Report</h1>
+            <h2>TK Description</h2>
+            <p>Prepared by: Zach Obront, Independent Security Researcher</p>
+            <p>Date: Feb 22 to March 1, 2023</p>
+        </td>
+    </tr>
+</table>
 
 # About **ProtocolName**
 
-_explanation what the protocol does, some architectural comments, technical documentation_
+TK
 
-# Threat Model
+# About **zachobront**
 
-### Roles & Actors
+Zach Obront is an independent smart contract security researcher. He serves as a Lead Senior Watson at Sherlock, a Security Researcher at Spearbit, and has identified multiple critical severity bugs in the wild, including in a Top 5 Protocol on Immunefi. You can say hi on Twitter at [@zachobront](http://twitter.com/zachobront).
 
-### Security Interview
+# Summary & Scope
 
-**Q:** What in the protocol has value in the market?
+The [tk/tk](http://tk.com) repository was audited at commit [TK](tk.com).
 
-**A:**
+The following contracts were in scope:
+- 1
+- 2
+- 3
 
-**Q:** What is the worst thing that can happen to the protocol?
+After completion of the fixes, the [TK](tk.com) commit was reviewed.
 
-**A:**
-
-**Q:** In what case can the protocol/users lose money?
-
-**A:**
-
-# Severity classification
-
-| Severity               | Impact: High | Impact: Medium | Impact: Low |
-| ---------------------- | ------------ | -------------- | ----------- |
-| **Likelihood: High**   | Critical     | High           | Medium      |
-| **Likelihood: Medium** | High         | Medium         | Low         |
-| **Likelihood: Low**    | Medium       | Low            | Low         |
-
-**Impact** - the technical, economic and reputation damage of a successful attack
-
-**Likelihood** - the chance that a particular vulnerability gets discovered and exploited
-
-**Severity** - the overall criticality of the risk
-
-# Security Assessment Summary
-
-**_review commit hash_ - [fffffffff](url)**
-
-### Scope
-
-The following smart contracts were in scope of the audit:
-
-- `SmartContractName`
-- `SmartContractName`
-
-The following number of issues were found, categorized by their severity:
-
-- Critical & High: x issues
-- Medium: x issues
-- Low: x issues
-- Informational: x issues
-
----
-
-# Findings Summary
+# Summary of Findings
 
 | ID     | Title                        | Severity      |
 | ------ | ---------------------------- | ------------- |
-| [C-01] | Any Critical Title Here      | Critical      |
-| [H-01] | Any High Title Here          | High          |
-| [M-01] | Any Medium Title Here        | Medium        |
-| [L-01] | Any Low Title Here           | Low           |
-| [I-01] | Any Informational Title Here | Informational |
+| [X-01] | Title | Severity |
 
 # Detailed Findings
 
-# [S-01] {name}
+## [X-01] XXX
 
-## Severity
+### Proof of Concept
 
-**Impact:**
+### Recommendation
 
-**Likelihood:**
-
-## Description
-
-## Recommendations
+### Review
