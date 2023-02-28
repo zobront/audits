@@ -1,6 +1,12 @@
-<p align="center"><img src="../logos/sound.jpg"/ ></p>
+<table>
+    <tr><th></th><th></th></tr>
+    <tr>
+    <td><img src="../logos/sound.jpg"/ ></td>
+    <td><h1>Sound.xyz Audit Report</h1></td>
+    </tr>
+</table>
 
-# Sound.xyz Audit Report
+
 ## Sound Automated Market (Bonding Curve) Mechanism
 
 
