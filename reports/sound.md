@@ -21,7 +21,7 @@ This security review focused on the new SAM (Sound Automated Market) feature. Th
 
 Zach Obront is an independent smart contract security researcher. He serves as a Lead Senior Watson at Sherlock, a Security Researcher at Spearbit, and has identified multiple critical severity bugs in the wild, including in a Top 5 Protocol on Immunefi. You can say hi on Twitter at [@zachobront](http://twitter.com/zachobront).
 
-# Summary
+# Summary & Scope
 
 [PR #10](https://github.com/soundxyz/sound-protocol-private/pull/10) of the [soundxyz/sound-protocol-private](https://github.com/soundxyz/sound-protocol-private/) repository was audited.
 
@@ -47,7 +47,7 @@ After completion of the fixes, the TK commit was reviewed.
 | [M-05] | Artist can set GoldenEggFee to zero, rugging winner | Medium |
 | [L-01] | mintRandomness() function does not use all intended randomness | Low |
 | [L-02] | Open + Bonding Curve settings will never successfully transition edition to SAM | Low |
-| [N-01] | Reentrancy Analysis | Not An Issue |
+| [N-01] | Reentrancy Analysis | Non-Issue |
 
 # Detailed Findings
 
