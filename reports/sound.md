@@ -30,9 +30,9 @@ The following contracts were in scope:
 - modules/SAM.sol
 - modules/utils/BondingCurveLib.sol
 
-Note: Part way through the audit, some changes were pushed to [PR #22](https://github.com/soundxyz/sound-protocol-private/pull/22) and the 1d2321b7f9a19aa14037c560b8d29814e43cd4be commit of that pull request was used for the remainder of the audit.
+Note: Part way through the audit, some changes were pushed to the 1d2321b7f9a19aa14037c560b8d29814e43cd4be commit of [PR #22](https://github.com/soundxyz/sound-protocol-private/pull/22), which was used for the remainder of the audit.
 
-After completion of the fixes, the TK commit was reviewed.
+After completion of the fixes, the final version of [PR #22](https://github.com/soundxyz/sound-protocol-private/pull/22) was reviewed.
 
 # Summary of Findings
 
@@ -43,7 +43,7 @@ After completion of the fixes, the TK commit was reviewed.
 | [M-01] | [Artist can frontrun transactions to extract additional fees](https://github.com/zobront/audits/blob/main/reports/sound.md#m-01-artist-can-frontrun-transactions-to-extract-additional-fees) | Medium | ✓ |
 | [M-02] | [MEV risk in periods of high volatility](https://github.com/zobront/audits/blob/main/reports/sound.md#m-02-mev-risk-in-periods-of-high-volatility) | Medium | ✓ |
 | [M-03] | [Edition owner can rug by inflating token quantity after mint begins](https://github.com/zobront/audits/blob/main/reports/sound.md#m-03-edition-owner-can-rug-by-inflating-token-quantity-after-mint-begins) | Medium | ✓ |
-| [M-04] | [Edition owner can manipulate Golden Egg by ending auction early](https://github.com/zobront/audits/blob/main/reports/sound.md#m-04-edition-owner-can-manipulate-golden-egg-by-ending-auction-early) | Medium | X |
+| [M-04] | [Edition owner can manipulate Golden Egg by ending auction early](https://github.com/zobront/audits/blob/main/reports/sound.md#m-04-edition-owner-can-manipulate-golden-egg-by-ending-auction-early) | Medium |  |
 | [M-05] | [Artist can set GoldenEggFee to zero, rugging winner](https://github.com/zobront/audits/blob/main/reports/sound.md#m-05-artist-can-set-goldeneggfee-to-zero-rugging-winner) | Medium | ✓ |
 | [L-01] | [mintRandomness() function does not use all intended randomness](https://github.com/zobront/audits/blob/main/reports/sound.md#l-01-mintrandomness-function-does-not-use-all-intended-randomness) | Low | ✓ |
 | [L-02] | [Open + Bonding Curve settings will never successfully transition edition to SAM](https://github.com/zobront/audits/blob/main/reports/sound.md#l-02-open--bonding-curve-settings-will-never-successfully-transition-edition-to-sam) | Low | ✓ |
