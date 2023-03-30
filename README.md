@@ -1,6 +1,6 @@
 # zachobront audit reports
 
-this repo holds some auditing projects i've done that are allowed to be shared publicly.
+this repo holds a selection of recent auditing projects i've done that can be shared publicly.
 
 ### past audits
 
