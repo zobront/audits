@@ -10,7 +10,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [soundxyz](https://sound.xyz/) | solo | 9 issues, 1 crit | [report](reports/sound.md) |
 | [nouns agora (alligator)](https://github.com/voteagora/liquid-delegator/) | solo | 7 issues, 1 crit | [report](reports/alligator.md) |
 | [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | solo | 11 issues, 3 crits | [report](reports/dyad.pdf) |
-| [astaria](https://astaria.xyz/) | spearbit (w/ sawmon, ndev, blockdev) | 183 issues, 6 crits | [report](reports/astaria.pdf) |
+| [astaria](https://astaria.xyz/) | spearbit (w/ [sawmon](https://twitter.com/sw0nt), [ndev](https://twitter.com/noahmarconi), [blockdev](https://twitter.com/blockdeveth)) | 183 issues, 6 crits | [report](reports/astaria.pdf) |
 
 
 ### availability
