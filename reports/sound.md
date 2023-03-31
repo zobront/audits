@@ -161,8 +161,6 @@ Confirmed in commit [cf9f6bd3e59d41ed60f654fa3efe28d0fcbfaea5](https://github.co
 
 ## [H-01] Golden Egg will continue to change throughout SAM
 
-_[Note: This issue was discovered by another researcher before I wrote up submissions, and the team made a fix in #17 during the audit. I am including it here for completeness, as the issue was present in commit 3b3de9, and to ensure that the fix is reviewed as a part of the fix review phase.]_
-
 When a fixed price sale ends and a SAM begins, the Golden Egg is supposed to be locked. The winner of the Golden Egg is confirmed, and this user is paid a percentage of all sales from the bonding curve.
 
 In order to determine who to send these fees to, SAM.sol calls `goldenEggFeeRecipient()`, which:
