@@ -41,13 +41,13 @@ After completion of the fixes, the final version of TK was reviewed.
 
 | ID     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
-| [H-01] | [Anyone can frontrun fixed price signature mints to waste claim ticket]() | High |  |
-| [M-01] | [Affiliate payment are skipped if incorrect or empty proof is submitted]() | Medium |  |
-| [M-02] | [All fees accrue to minters, which can be forked to use platform without fees]() | Medium |  |
-| [M-03] | [Potentially unsafe use of forceSafeTransferETH]() | Medium |  |
-| [L-01] | [Admin can frontrun and rug affiliates]() | Low |  |
-| [N-01] | [EditionMaxMinterV2 overrides totalPrice() with identical function]() | Non-Critical |  |
-| [G-01] | [Time range check performed multiple times]() | Gas |  |
+| [H-01] | [Anyone can frontrun fixed price signature mints to waste claim ticket](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | High |  |
+| [M-01] | [Affiliate payment are skipped if incorrect or empty proof is submitted](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Medium |  |
+| [M-02] | [All fees accrue to minters, which can be forked to use platform without fees](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Medium |  |
+| [M-03] | [Potentially unsafe use of forceSafeTransferETH](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Medium |  |
+| [L-01] | [Admin can frontrun and rug affiliates](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Low |  |
+| [N-01] | [EditionMaxMinterV2 overrides totalPrice() with identical function](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Non-Critical |  |
+| [G-01] | [Time range check performed multiple times](https://github.com/zobront/audits/blob/main/reports/sound2.md#h-01-anyone-can-frontrun-fixed-price-signature-mints-to-waste-claim-ticket) | Gas |  |
 
 # Detailed Findings
 
