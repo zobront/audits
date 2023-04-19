@@ -35,7 +35,7 @@ The following contracts were in scope:
 - modules/utils/DelegateCashLib.sol
 
 
-After completion of the fixes, the final version of TK was reviewed.
+After completion of the fixes, [PR #42](https://github.com/soundxyz/sound-protocol-private/pull/42) was reviewed.
 
 # Summary of Findings
 
