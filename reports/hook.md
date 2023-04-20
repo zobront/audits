@@ -423,7 +423,7 @@ Set the address for EIP712 Domain Separator to `address(this)` in the constructo
 
 ### Review
 
-Fixed in [PR #104](https://github.com/hookart/protocol/pull/104/) by using `address(this)` in the constructor, setting the variable to immutable, and removing the domain separator update from the `setProtocol()` function.
+Fixed in [PR #104](https://github.com/hookart/protocol/pull/104/) by switching to OpenZeppelin's EIP712 implementation.
 
 ## [L-01] Setting role admins to self is not advised
 
