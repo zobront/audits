@@ -8,6 +8,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | ---- | ---- | ----------- | ---------|
 | [optimism bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) | sherlock (w/ [trust](https://twitter.com/trust__90)) | 1st place ($199k) | [report](https://github.com/sherlock-audit/2023-01-optimism-judging) |
 | [soundxyz (SAM)](https://sound.xyz/) | solo | 9 issues, 1 crit | [report](reports/sound.md) |
+| [hook protocol (hook bid pool)](http://hook.xyz/) | solo | 11 issues, 1 crit | [report](reports/hook.md) |
 | [soundxyz (minters)](https://sound.xyz/) | solo | 8 issues, 1 high | [report](reports/sound2.md) |
 | [nouns agora (alligator)](https://github.com/voteagora/liquid-delegator/) | solo | 7 issues, 1 crit | [report](reports/alligator.md) |
 | [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | solo | 11 issues, 3 crits | [report](reports/dyad.pdf) |
