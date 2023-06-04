@@ -1,7 +1,7 @@
 <table>
     <tr><th></th><th></th></tr>
     <tr>
-        <td><img src="../logos/sound.jpg" width="250" height="250" /></td>
+        <td><img src="https://www.sound.xyz/_next/image?url=https%3A%2F%2Fd2i9ybouka0ieh.cloudfront.net%2Fuser-uploads%2F87197921-392f-4228-a258-d5c1371cfd5d%2FAVATAR_IMAGE%2F300700-soundxyz_.jpeg&w=256&q=75" width="250" height="250" /></td>
         <td>
             <h1>Sound.xyz Audit Report</h1>
             <h2>Sound Automated Market (Bonding Curve) Mechanism</h2>
