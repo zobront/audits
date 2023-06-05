@@ -13,6 +13,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [nouns agora](https://www.nounsagora.com/) | [alligator](https://github.com/voteagora/liquid-delegator/) (liquid delegation) | solo | [report](reports/alligator.md) |
 | [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | core (overcollateralized stablecoin) | solo | [report](reports/dyad.pdf) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | solo | [report](reports/dhedge.md) |
+| [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | solo | [report](reports/stakedao.md) |
 | [astaria](https://astaria.xyz/) | full protocol | spearbit (w/ [sawmon](https://twitter.com/sw0nt), [ndev](https://twitter.com/noahmarconi), [blockdev](https://twitter.com/blockdeveth)) | [report](reports/astaria.pdf) |
 
 
