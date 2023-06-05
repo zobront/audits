@@ -145,7 +145,7 @@ return size > 0;
 
 ### Review
 
-Fixed as recommended in [commit a6240a3f84384d7db1961250bbba369781cd3572](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6240a3f84384d7db1961250bbba369781cd3572).
+Fixed as recommended in commit [a6240a3f84384d7db1961250bbba369781cd3572](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6240a3f84384d7db1961250bbba369781cd3572).
 
 ## [M-03] Upgrades are put into effect immediately during first period
 
@@ -243,7 +243,7 @@ If this change is made, we can then remove the check for `rewardPerVote[bountyId
 
 ### Review
 
-Fixed as recommended in [commit ccf52caa8026f4a9e528bccfc32f646f7944ecfc](https://github.com/StakeDAO/sdt-bribe-platform/commit/ccf52caa8026f4a9e528bccfc32f646f7944ecfc).
+Fixed as recommended in commit [ccf52caa8026f4a9e528bccfc32f646f7944ecfc](https://github.com/StakeDAO/sdt-bribe-platform/commit/ccf52caa8026f4a9e528bccfc32f646f7944ecfc).
 
 ## [M-04] Users cannot claim bounty in final week of their lock
 
@@ -318,7 +318,7 @@ function _getAddrBias(uint256 userSlope, uint256 endLockTime, uint256 currentPer
 
 ### Review
 
-Fixed as recommended in [commit 4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f](https://github.com/StakeDAO/sdt-bribe-platform/commit/4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f).
+Fixed as recommended in commit [4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f](https://github.com/StakeDAO/sdt-bribe-platform/commit/4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f).
 
 ## [M-05] Race condition if bounty is extended in final period
 
@@ -361,7 +361,7 @@ Alternatively, the `increaseBountyDuration()` function could be limited to only 
 
 ### Review
 
-Fixed as recommended in [commit 4ace3cea6315420dfd648315bc58bc070244bde9](https://github.com/StakeDAO/sdt-bribe-platform/commit/4ace3cea6315420dfd648315bc58bc070244bde9).
+Fixed as recommended in commit [4ace3cea6315420dfd648315bc58bc070244bde9](https://github.com/StakeDAO/sdt-bribe-platform/commit/4ace3cea6315420dfd648315bc58bc070244bde9).
 
 ## [L-01] Blacklisted addresses will count towards total slope if they vote before rollover
 
@@ -473,7 +473,7 @@ function updateManager(uint256 bountyId, address newManager) external onlyManage
 
 ### Review
 
-Fixed as recommended in [commit a6eb9113dfc4bd086373218b232fa536e3a1bbcd](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6eb9113dfc4bd086373218b232fa536e3a1bbcd).
+Fixed as recommended in commit [a6eb9113dfc4bd086373218b232fa536e3a1bbcd](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6eb9113dfc4bd086373218b232fa536e3a1bbcd).
 
 ## [L-04] `platformFee` can be set above 1e18, which would disable all claims
 
@@ -501,7 +501,7 @@ Add a check to `setPlatformFee` to ensure the value set is equal to or below `1e
 
 ### Review
 
-Fixed as recommended in [commit d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7](https://github.com/StakeDAO/sdt-bribe-platform/commit/d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7).
+Fixed as recommended in commit [d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7](https://github.com/StakeDAO/sdt-bribe-platform/commit/d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7).
 
 ## [G-01] Can pack structs to use fewer storage slots
 
@@ -613,7 +613,7 @@ function claimAllFor(address _user, uint256[] calldata ids) external {
 
 ### Review
 
-Fixed as recommended in [commit 71d2f38c0e7cb351f6d641449b43619e02423b57](https://github.com/StakeDAO/sdt-bribe-platform/commit/71d2f38c0e7cb351f6d641449b43619e02423b57).
+Fixed as recommended in commit [71d2f38c0e7cb351f6d641449b43619e02423b57](https://github.com/StakeDAO/sdt-bribe-platform/commit/71d2f38c0e7cb351f6d641449b43619e02423b57).
 
 ## [G-03] Calling `createBounty()` with invalid gauge will revert before returning 0
 
@@ -640,4 +640,4 @@ Rather than perform a check with the return value, we can simply call `gaugeCont
 
 ### Review
 
-Fixed as recommended in [commit c83edab6163caa679164dcb451d2ec0dd3cc62b3](https://github.com/StakeDAO/sdt-bribe-platform/commit/c83edab6163caa679164dcb451d2ec0dd3cc62b3).
+Fixed as recommended in commit [c83edab6163caa679164dcb451d2ec0dd3cc62b3](https://github.com/StakeDAO/sdt-bribe-platform/commit/c83edab6163caa679164dcb451d2ec0dd3cc62b3).
