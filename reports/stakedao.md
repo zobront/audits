@@ -32,17 +32,17 @@ The following contracts were in scope:
 | ID     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
 | M-01 | Bounty manager can set `maxRewardPerVote` to 1 after votes are locked, stealing free votes | Medium |  |
-| M-02 | `createBounty()` doesn't confirm that a `rewardToken` exists, which can be used to steal deterministic tokens | Medium |  |
-| M-03 | Upgrades are put into effect immediately during first period | Medium |  |
-| M-04 | Users cannot claim bounty in final week of their lock | Medium |  |
-| M-05 | Race condition if bounty is extended in final period | Medium |  |
+| M-02 | `createBounty()` doesn't confirm that a `rewardToken` exists, which can be used to steal deterministic tokens | Medium | ✓ |
+| M-03 | Upgrades are put into effect immediately during first period | Medium | ✓ |
+| M-04 | Users cannot claim bounty in final week of their lock | Medium | ✓ |
+| M-05 | Race condition if bounty is extended in final period | Medium | ✓ |
 | L-01 | Blacklisted addresses will count towards total slope if they vote before rollover | Low |  |
 | L-02 | Owner can steal funds from any user by abusing `setRecipientFor()` or `platformFee` | Low |  |
-| L-03 | Manager can be set to address(0), which prevents bounty from being closed | Low |  |
-| L-04 | `platformFee` can be set above 1e18, which would disable all claims | Low |  |
+| L-03 | Manager can be set to address(0), which prevents bounty from being closed | Low | ✓ |
+| L-04 | `platformFee` can be set above 1e18, which would disable all claims | Low | ✓ |
 | G-01 | Can pack structs to use fewer storage slots | Gas |  |
-| G-02 | `claimAllFor()` recipient check can be moved outside of the loop to save gas | Gas |  |
-| G-03 | Calling `createBounty()` with invalid gauge will revert before returning 0 | Gas |  |
+| G-02 | `claimAllFor()` recipient check can be moved outside of the loop to save gas | Gas | ✓ |
+| G-03 | Calling `createBounty()` with invalid gauge will revert before returning 0 | Gas | ✓ |
 
 # Detailed Findings
 
@@ -80,7 +80,7 @@ This could be done by changing the argument to `_increasedMaxRewardPerVote` and 
 
 ### Review
 
-TK
+Acknowledged.
 
 ## [M-02] `createBounty()` doesn't confirm that a `rewardToken` exists, which can be used to steal deterministic tokens
 
@@ -145,7 +145,7 @@ return size > 0;
 
 ### Review
 
-TK
+Fixed as recommended in [commit a6240a3f84384d7db1961250bbba369781cd3572](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6240a3f84384d7db1961250bbba369781cd3572).
 
 ## [M-03] Upgrades are put into effect immediately during first period
 
@@ -243,7 +243,7 @@ If this change is made, we can then remove the check for `rewardPerVote[bountyId
 
 ### Review
 
-TK
+Fixed as recommended in [commit ccf52caa8026f4a9e528bccfc32f646f7944ecfc](https://github.com/StakeDAO/sdt-bribe-platform/commit/ccf52caa8026f4a9e528bccfc32f646f7944ecfc).
 
 ## [M-04] Users cannot claim bounty in final week of their lock
 
@@ -318,7 +318,7 @@ function _getAddrBias(uint256 userSlope, uint256 endLockTime, uint256 currentPer
 
 ### Review
 
-TK
+Fixed as recommended in [commit 4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f](https://github.com/StakeDAO/sdt-bribe-platform/commit/4afbe9f3fdf8e67fde9ad3072417b4a6c742b65f).
 
 ## [M-05] Race condition if bounty is extended in final period
 
@@ -361,7 +361,7 @@ Alternatively, the `increaseBountyDuration()` function could be limited to only 
 
 ### Review
 
-TK
+Fixed as recommended in [commit 4ace3cea6315420dfd648315bc58bc070244bde9](https://github.com/StakeDAO/sdt-bribe-platform/commit/4ace3cea6315420dfd648315bc58bc070244bde9).
 
 ## [L-01] Blacklisted addresses will count towards total slope if they vote before rollover
 
@@ -402,7 +402,7 @@ I think the current solution is the best option, but documenting it as a minor m
 
 ### Review
 
-TK
+Acknowledged.
 
 ## [L-02] Owner can steal funds from any user by abusing `setRecipientFor()` or `platformFee`
 
@@ -429,7 +429,7 @@ If you prefer to remove this trust assumption, this can be accomplished by hardc
 
 ### Review
 
-TK
+Acknowledged.
 
 ## [L-03] Manager can be set to address(0), which prevents bounty from being closed
 
@@ -473,7 +473,7 @@ function updateManager(uint256 bountyId, address newManager) external onlyManage
 
 ### Review
 
-TK
+Fixed as recommended in [commit a6eb9113dfc4bd086373218b232fa536e3a1bbcd](https://github.com/StakeDAO/sdt-bribe-platform/commit/a6eb9113dfc4bd086373218b232fa536e3a1bbcd).
 
 ## [L-04] `platformFee` can be set above 1e18, which would disable all claims
 
@@ -497,11 +497,11 @@ In the case that `fee > 1e18`, then `amount -= feeAmount` will underflow and the
 
 ### Recommendation
 
-Add a check to `setPlatformFee` to ensure the value set is below `1e18` (or some other hardcoded `MAX_FEE` you determine).
+Add a check to `setPlatformFee` to ensure the value set is equal to or below `1e18` (or some other hardcoded `MAX_FEE` you determine).
 
 ### Review
 
-TK
+Fixed as recommended in [commit d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7](https://github.com/StakeDAO/sdt-bribe-platform/commit/d0ed9ff05969b100c8fb9ab17d8f6a0ffcc2a6b7).
 
 ## [G-01] Can pack structs to use fewer storage slots
 
@@ -569,7 +569,7 @@ struct Period {
 
 ### Review
 
-TK
+Acknowledged.
 
 ## [G-02] `claimAllFor()` recipient check can be moved outside of the loop to save gas
 
@@ -613,7 +613,7 @@ function claimAllFor(address _user, uint256[] calldata ids) external {
 
 ### Review
 
-TK
+Fixed as recommended in [commit 71d2f38c0e7cb351f6d641449b43619e02423b57](https://github.com/StakeDAO/sdt-bribe-platform/commit/71d2f38c0e7cb351f6d641449b43619e02423b57).
 
 ## [G-03] Calling `createBounty()` with invalid gauge will revert before returning 0
 
@@ -640,4 +640,4 @@ Rather than perform a check with the return value, we can simply call `gaugeCont
 
 ### Review
 
-TK
+Fixed as recommended in [commit c83edab6163caa679164dcb451d2ec0dd3cc62b3](https://github.com/StakeDAO/sdt-bribe-platform/commit/c83edab6163caa679164dcb451d2ec0dd3cc62b3).
