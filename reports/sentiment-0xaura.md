@@ -27,7 +27,7 @@ The following contracts were in scope:
 - src/0x/TransformController.sol
 - src/aura/RewardPoolController.sol
 
-After completion of the fixes, the [TK](tk.com) commit was reviewed.
+After completion of the fixes, the [49db04366e255568f0cab1e6e083b9fff808b384](https://github.com/sentimentxyz/controller/pull/64/commits/49db04366e255568f0cab1e6e083b9fff808b384) commit was reviewed.
 
 # Summary of Findings
 
