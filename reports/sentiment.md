@@ -34,8 +34,8 @@ After completion of the fixes, the [TK](tk.com) commit was reviewed.
 | ID     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
 | [H-01] | AURA token will not be accounted for in `tokensIn` | High | ✓ |
-| [H-02] | Many 0x transformations ignore outputToken, returning unaccounted for tokens to account and risking liquidations | High |  |
 | [M-01] | New 0x transformers are allowed by default, which could lead to unexpected problems | Medium |  |
+| [M-02] | Many 0x transformations ignore outputToken, returning unaccounted for tokens to account and risking liquidations | Medium |  |
 | [L-01] | `withdraw()` and `redeem()` do not send any reward tokens | Low | ✓ |
 | [L-02] | If ETH is used as an input and output token to 0x, it will always revert | Low |  |
 
@@ -90,7 +90,42 @@ IBooster(IRewards(target).operator()).minter();
 
 ### Review
 
-TK
+Fixed in [commit 49db04366e255568f0cab1e6e083b9fff808b384](https://github.com/sentimentxyz/controller/pull/64/commits/49db04366e255568f0cab1e6e083b9fff808b384) as recommended.
+
+## [M-01] New 0x transformers are allowed by default, which could lead to unexpected problems
+
+When the controller checks `canCall()` for calls to the 0x contract, it begins by checking that `sig == 0x415565b0`.
+
+If this check fails (ie if any other function is called), the call is not allowed. However, if it passes, all possible calls are allowed. There is no further validation.
+
+The `transformERC20()` function being called takes in some assets, as well as transformer nonces (which are translated to addresses) and calldata to pass to these addresses. The 0x contract then executes these calls and returns the assets to the caller.
+
+The 0x contract has its own logic to ensure that only valid 0x transformers can be called, so there is no risk of malicious addresses being passed. However, because each of these transformers performs a different function, and more transformers can be added at any time, there is a risk that a new transformer will be added that causes unexpected behavior.
+
+As an example, one could imagine a transformer that allows a user to approve an Operator. This Operator could then make calls to 0x on their behalf. If this was possible, all of Sentiment could be drained with the following exploit:
+- Take a flash loan and deposit a large amount of funds into Sentiment (> 20% of protocol's TVL).
+- Borrow the maxmimum amount of funds against it and convert all funds into one token.
+- Approve 0x to transfer this token on behalf of the Sentiment account.
+- Call `transformERC20()` with the transformer that sets another Operator.
+- After the `exec()` call, the account is still healthy, so it's permitted.
+- From the Operator account, call `transformERC20()` with to pull funds from the Sentiment account, with another non-Sentiment account as the receiver.
+- Since the call is not coming from Sentiment, there is no way to check account health after it is executed, and the pulled funds represent all of Sentiment's TVL.
+
+While I do not think adding such a feature is likely, it is clear that allowing calls to a contract that implements arbitrary logic is very dangerous. The current architecture leaves the door open for 0x to make changes down the road that will be accepted automatically by the Sentiment protocol without being analyzed and approved by the Sentiment team.
+
+### Recommendation
+
+A safer approach may be to examine the transformers one by one, and specifically create an allowlist for which transformers are known to be safe.
+
+This would default to new transformers not being allowed until approved by the Sentiment team, which seems like a more appropriate strategy when delegating to external logic.
+
+(It would also have the added benefit of allowing more granular knowledge of `tokensIn`, as discussed in H-01.)
+
+### Review
+
+Acknowledged. The Sentiment team spoke to the 0x team, who confirmed that they do not currently support any form of smart contract signatures, and that signed messages are the only way that one user could trade on behalf of another user.
+
+The Sentiment team plans to keep a careful eye on all 0x transformer deployments and other features (as well as keeping lines of communication open with the 0x team) in order to ensure that any changes in this response are caught and addressed.
 
 ## [H-02] Many 0x transformations ignore outputToken, returning unaccounted for tokens to account and risking liquidations
 
@@ -196,36 +231,9 @@ This will accomplish two things:
 
 ### Review
 
-TK
+Acknowledged. The Sentiment front end will only support transactions that follow their expectations.
 
-## [M-01] New 0x transformers are allowed by default, which could lead to unexpected problems
-
-When the controller checks `canCall()` for calls to the 0x contract, it begins by checking that `sig == 0x415565b0`.
-
-If this check fails (ie if any other function is called), the call is not allowed. However, if it passes, all possible calls are allowed. There is no further validation.
-
-The `transformERC20()` function being called takes in some assets, as well as transformer nonces (which are translated to addresses) and calldata to pass to these addresses. The 0x contract then executes these calls and returns the assets to the caller.
-
-The 0x contract has its own logic to ensure that only valid 0x transformers can be called, so there is no risk of malicious addresses being passed. However, because each of these transformers performs a different function, and more transformers can be added at any time, there is a risk that a new transformer will be added that causes unexpected behavior.
-
-As an example, one could imagine a transformer that allows a user to approve an Operator. This Operator could then make calls to 0x on their behalf. If this was possible, all of Sentiment could be drained with the following exploit:
-- Take a flash loan and deposit a large amount of funds into Sentiment (> 20% of protocol's TVL).
-- Borrow the maxmimum amount of funds against it and convert all funds into one token.
-- Approve 0x to transfer this token on behalf of the Sentiment account.
-- Call `transformERC20()` with the transformer that sets another Operator.
-- After the `exec()` call, the account is still healthy, so it's permitted.
-- From the Operator account, call `transformERC20()` with to pull funds from the Sentiment account, with another non-Sentiment account as the receiver.
-- Since the call is not coming from Sentiment, there is no way to check account health after it is executed, and the pulled funds represent all of Sentiment's TVL.
-
-While I do not think adding such a feature is likely, it is clear that allowing calls to a contract that implements arbitrary logic is very dangerous. The current architecture leaves the door open for 0x to make changes down the road that will be accepted automatically by the Sentiment protocol without being analyzed and approved by the Sentiment team.
-
-### Recommendation
-
-A safer approach may be to examine the transformers one by one, and specifically create an allowlist for which transformers are known to be safe.
-
-This would default to new transformers not being allowed until approved by the Sentiment team, which seems like a more appropriate strategy when delegating to external logic.
-
-(It would also have the added benefit of allowing more granular knowledge of `tokensIn`, as discussed in H-01.)
+Further, the worst that can happen to a user is to harm themselves with these actions (they cannot steal funds or harm others). Sentiment will be very clear that transactions outside the front end where tokens are returned that are not `outputToken` are not supported, and users will need to manually add these assets to their accounts if they perform them to avoid risking liquidation.
 
 ## [L-01] Aura's `withdraw()` and `redeem()` functions do not send any reward tokens
 
@@ -293,7 +301,7 @@ The `canCallWithdrawAndRedeem()` function can be simplified to only include the 
 
 ### Review
 
-TK
+Fixed in [commit 49db04366e255568f0cab1e6e083b9fff808b384](https://github.com/sentimentxyz/controller/pull/64/commits/49db04366e255568f0cab1e6e083b9fff808b384) as recommended.
 
 ## [L-02] If ETH is used as an input and output token to 0x, it will always revert
 
@@ -366,4 +374,4 @@ if (tokenOut == ETH) {
 
 ### Review
 
-TK
+Acknowledged. This situation seems unlikely to happen, and the Sentiment team has chosen not to address the issue.
