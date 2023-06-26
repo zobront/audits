@@ -150,10 +150,19 @@ However, these conditions do not succeed in accomplishing their goal. Most impor
 
 ### Recommendations
 
+This is a tricky problem without a clear solution. Of course, we could simply check the balance before and after relative to the budget, but this would have the effect of reverting the whole proposal if the budget was exceeded. It is preferable to have only the transactions that push the proposal over the budget to revert.
+
+My original recommendation was to remove this feature. However, it was made clear that this feature is not optional.
+
+The best solution I can think of it to have the proposer include an amount that is expected to be spent for each transaction, and then to verify that they were honest after execution is completed.
+
+This could be performed as follows:
 - Check the initial balance of the ERC20 before beginning execution.
 - Have the proposal include a `tokenBudget` for each action.
 - Tally up these `tokenBudget` values, and reject any push the total over the `budgetAmount`.
 - After the proposal has been executed, check the final balance of the ERC20, and ensure that it hasn't fallen by more than it should have based on the sum of `tokenBudget`s.
+
+While this solution is not exactly perfect (as it has the potential be gamed by a proposer who wants additional transactions to revert that doesn't exceed the cap), it does serve the expressed purpose of imposing an informal budget cap on proposals.
 
 ### Review
 
