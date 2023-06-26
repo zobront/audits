@@ -35,7 +35,7 @@ After completion of the fixes, the TK commit was reviewed.
 
 # Summary of Findings
 
-| ID     | Title                        | Severity      | Fixed |
+| Identifier     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
 | [H-01] | Proposals supported only by a small fraction of the community can be passed using the Approval Module | High | ✓ |
 | [H-02] | Budget cap will not account for transfers of approved or permitted ERC20 tokens | High | ✓ |
