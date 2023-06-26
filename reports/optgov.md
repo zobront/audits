@@ -37,15 +37,14 @@ After completion of the fixes, the TK commit was reviewed.
 
 | ID     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
-| [H-01] | Proposals supported only by a small fraction of the community can be passed using the Approval Module | High | |
-| [H-02] | Multiblock transaction ordering manipulation can be used to accrue additional votes |  High | |
-| [H-03] | Budget cap will not account for transfers of approved or permitted ERC20 tokens | High | |
-| [M-01] | New proposals can be DOS'd by frontrunning |  Medium | |
-| [M-02] | Any address can be passed as a VotingModule, which could lead to abuse | Medium | |
-| [L-01] | Votes can be arbitrarily extended by Manager until they meet quorum | Low | |
-| [L-02] | Quorum initialized to 0.03% instead of 30% due to overridden denominator | Low | |
-| [G-01] | Loops in ApprovalVotingModule#propose() can be consolidated | Gas | |
-| [G-02] | Remove checks for inaccessible states | Gas | |
+| [H-01] | Proposals supported only by a small fraction of the community can be passed using the Approval Module | High | ✓ |
+| [H-02] | Budget cap will not account for transfers of approved or permitted ERC20 tokens | High | ✓ |
+| [M-01] | New proposals can be DOS'd by frontrunning |  Medium | ✓ |
+| [M-02] | Any address can be passed as a VotingModule, which could lead to abuse | Medium | ✓ |
+| [M-03] | Votes can be arbitrarily extended by Manager until they meet quorum | Medium | |
+| [L-01] | Quorum initialized to 0.03% instead of 30% due to overridden denominator | Low | ✓ |
+| [G-01] | Loops in ApprovalVotingModule#propose() can be consolidated | Gas | ✓ |
+| [G-02] | Remove checks for inaccessible states | Gas | ✓ |
 
 # Detailed Findings
 
@@ -83,77 +82,10 @@ In this case, that means ensuring there is the ability to vote `no` on the propo
 
 ### Review
 
-TK
-
-## [H-02] Multiblock transaction ordering manipulation can be used to accrue additional votes
-
-When a proposal is submitted, the `snapshot` block is set to the current block plus the voting delay:
-```solidity
-uint64 snapshot = block.number.toUint64() + votingDelay().toUint64();
-```
-In the event that any validator has consecutive blocks starting on the `snapshot` block, they will be able to accrue an extremely large number of tokens and skew voting. They could do this by:
-- In the last transaction of the `snapshot` block, trade all of their assets into governance tokens across all DEXs
-- This transfer would trigger a checkpoint (the final one of the block), which would denote their holdings as a very high amount
-- In the first transaction of the next block (before anyone could arbitrage), trade all the governance tokens back
-
-As you can see [in this Flashbots thread](https://collective.flashbots.net/t/multi-block-mev/457/2), this is not a theoretical problem. Major stakers like Coinbase are expected to get consecutive blocks every 15-20 minutes. [Even controlling just 0.015% of staked ETH will lead to consecutive blocks every 62 days.](https://twitter.com/MTorgin/status/1521433474820890624)
-
-### Recommendations
-
-Given the centralization of the system and the inability to manipulate behavior through the vote, I wouldn't worry about addressing this at the moment. However, the system decentralizes and more decisions are made on chain, this is a risk that should be accounted for.
-
-### Review
-
-TK
-
-## [M-03] Votes can be arbitrarily extended by Manager until they meet quorum
-
-In `OptimismGovernorV5.sol`, new proposals are created with a `snapshot` (start time) and `deadline` (end time):
-
-```solidity
-uint64 snapshot = block.number.toUint64() + votingDelay().toUint64();
-uint64 deadline = snapshot + votingPeriod().toUint64();
-
-proposal.voteStart.setDeadline(snapshot);
-proposal.voteEnd.setDeadline(deadline);
-proposal.votingModule = address(module);
-```
-All significant parameters on a proposal are locked once the vote is underway:
-- a proposal's `votingModule` is immutable and cannot be changed
-- updates to `quorum` are saved historically, so that updates don't change existing proposals
-- `votingPeriod` and `votingDelay` cannot impact timing because calculations are performed up front and saved
-- all settings and options are immutably set and cannot be changed
-
-The one exception is the `proposalDeadline`, which can be edited by the Manager with this function:
-```solidity
-function setProposalDeadline(uint256 proposalId, uint64 deadline) public onlyManager {
-    _proposals[proposalId].voteEnd.setDeadline(deadline);
-    emit ProposalDeadlineUpdated(proposalId, deadline);
-}
-```
-This allows the manager to extend the vote for an arbitrary amount of time by continually pushing back the deadline.
-
-This is especially risky when using the `ApprovalVotingModule`, because there are no `Against` votes. If many users are against the proposal, there is no way for them to express their opinion except by not voting. However, extending the vote will inevitably lead to more awareness and a vote that is more likely to pass (either by reaching quorum or by individual options reaching their threshold).
-
-In an extreme case, a Manager could even push back the deadline for a completed vote, reopening it after the fact. In fact, failed votes can be moved from `Defeated` to `Active` at any time. This breaks a strong user assumptions, as votes should be considered final once they are completed.
-
-### Recommendation
-
-Only allow the deadline to be changed before the vote starts:
-```diff
-function setProposalDeadline(uint256 proposalId, uint64 deadline) public onlyManager {
-+   require(block.timestamp < _proposals[proposalId].voteStart.getDeadline());
-    _proposals[proposalId].voteEnd.setDeadline(deadline);
-    emit ProposalDeadlineUpdated(proposalId, deadline);
-}
-```
-
-### Review
-
-TK
+Fixed in commit [41d5fd3f460a9fbe3298b967c360795a67de5cfe](https://github.com/voteagora/optimism-gov/commit/41d5fd3f460a9fbe3298b967c360795a67de5cfe) by refactoring `OptimismGovernorV5.sol` to continue to use the regular voting logic, and only using the module for additional logic in determining vote success and execution params.
 
 
-## [H-03] Budget cap will not account for transfers of approved or permitted ERC20 tokens
+## [H-02] Budget cap will not account for transfers of approved or permitted ERC20 tokens
 
 `ApprovalVotingModule.sol` contains a feature where the governor can input a `budgetToken` and a `budgetAmount`, and the module ensures that passed proposals cannot spend more than this amount of this token.
 
@@ -218,19 +150,14 @@ However, these conditions do not succeed in accomplishing their goal. Most impor
 
 ### Recommendations
 
-This is a difficult problem to solve. Looking at the three possible issues:
-
-1) This could be mostly solved by incrementing when `approve()` is called, but this isn't a guarantee. For example, `approve()` could be called from a separate proposal in which the `budgetToken` isn't set, and then it could be spent (exceeding the budget cap) in a given transaction. Approvals could also be saved up (intentionally or accidentally) over the course of many transactions, and then spent all at once, exceeding the cap for the final transaction.
-
-2) I can't see any way that this could be solved, as the data needed for `permit()` to be called can be passed into any function on any contract.
-
-3) This is solvable by checking the `from` value offset in the function calldata and ensuring it is `address(this)`.
-
-Unless there is a solution I'm missing, my recommendation is to remove this feature, or allow it only for ETH. Keeping the feature but not having it be secure risks giving the protocol false confidence that these rules are being enforced, when it reality, they may not be.
+- Check the initial balance of the ERC20 before beginning execution.
+- Have the proposal include a `tokenBudget` for each action.
+- Tally up these `tokenBudget` values, and reject any push the total over the `budgetAmount`.
+- After the proposal has been executed, check the final balance of the ERC20, and ensure that it hasn't fallen by more than it should have based on the sum of `tokenBudget`s.
 
 ### Review
 
-TK
+Fixed as recommended in [39880bd56c99a83b5df3fafbc3c6d35f104a1cda](https://github.com/voteagora/optimism-gov/commit/39880bd56c99a83b5df3fafbc3c6d35f104a1cda).
 
 ## [M-01] New proposals can be DOS'd by frontrunning
 
@@ -326,7 +253,7 @@ This serves the purpose of ensuring that the `msg.sender` is equal to the govern
 
 ### Review
 
-TK
+Fixed as recommended in [20e645198d10646c6923e8a9caafb05e536d8fe3](https://github.com/voteagora/optimism-gov/commit/20e645198d10646c6923e8a9caafb05e536d8fe3).
 
 ## [M-02] Any address can be passed as a VotingModule, which could lead to abuse
 
@@ -355,7 +282,53 @@ Fortunately, because the module address is hashed into the `proposalId`, once th
 
 ### Review
 
-TK
+Fixed as recommended in [1152881afcb6272a29e80b0cb17914007a68cd27](https://github.com/voteagora/optimism-gov/commit/1152881afcb6272a29e80b0cb17914007a68cd27).
+
+## [M-03] Votes can be arbitrarily extended by Manager until they meet quorum
+
+In `OptimismGovernorV5.sol`, new proposals are created with a `snapshot` (start time) and `deadline` (end time):
+
+```solidity
+uint64 snapshot = block.number.toUint64() + votingDelay().toUint64();
+uint64 deadline = snapshot + votingPeriod().toUint64();
+
+proposal.voteStart.setDeadline(snapshot);
+proposal.voteEnd.setDeadline(deadline);
+proposal.votingModule = address(module);
+```
+All significant parameters on a proposal are locked once the vote is underway:
+- a proposal's `votingModule` is immutable and cannot be changed
+- updates to `quorum` are saved historically, so that updates don't change existing proposals
+- `votingPeriod` and `votingDelay` cannot impact timing because calculations are performed up front and saved
+- all settings and options are immutably set and cannot be changed
+
+The one exception is the `proposalDeadline`, which can be edited by the Manager with this function:
+```solidity
+function setProposalDeadline(uint256 proposalId, uint64 deadline) public onlyManager {
+    _proposals[proposalId].voteEnd.setDeadline(deadline);
+    emit ProposalDeadlineUpdated(proposalId, deadline);
+}
+```
+This allows the manager to extend the vote for an arbitrary amount of time by continually pushing back the deadline.
+
+This is especially risky when using the `ApprovalVotingModule`, because there are no `Against` votes. If many users are against the proposal, there is no way for them to express their opinion except by not voting. However, extending the vote will inevitably lead to more awareness and a vote that is more likely to pass (either by reaching quorum or by individual options reaching their threshold).
+
+In an extreme case, a Manager could even push back the deadline for a completed vote, reopening it after the fact. In fact, failed votes can be moved from `Defeated` to `Active` at any time. This breaks a strong user assumptions, as votes should be considered final once they are completed.
+
+### Recommendation
+
+Only allow the deadline to be changed before the vote starts:
+```diff
+function setProposalDeadline(uint256 proposalId, uint64 deadline) public onlyManager {
++   require(block.timestamp < _proposals[proposalId].voteStart.getDeadline());
+    _proposals[proposalId].voteEnd.setDeadline(deadline);
+    emit ProposalDeadlineUpdated(proposalId, deadline);
+}
+```
+
+### Review
+
+Acknowledged: "Currently leaving this unchanged as `setProposalDeadline` is intended to be unrestricted in this version."
 
 ## [L-01] Quorum initialized to 0.03% instead of 30% due to overridden denominator
 
@@ -430,7 +403,7 @@ function initialize(IVotesUpgradeable _votingToken, address _manager) public ini
 
 ### Review
 
-TK
+Fixed by removing the `initialize()` function (since the proxy has already been initialized and is just being upgraded) in [6aa306ea5df526bd49e88073daa0da27c5b56e5e](https://github.com/voteagora/optimism-gov/commit/6aa306ea5df526bd49e88073daa0da27c5b56e5e)
 
 ## [G-01] Loops in ApprovalVotingModule#propose() can be consolidated
 
@@ -489,7 +462,7 @@ unchecked {
 
 ### Review
 
-TK
+Fixed as recommended in [a89a51559f3b116c60703b2acb2c48bf51121692](https://github.com/voteagora/optimism-gov/commit/a89a51559f3b116c60703b2acb2c48bf51121692).
 
 ## [G-02] Remove checks for inaccessible states
 
@@ -579,4 +552,4 @@ require(
 
 ### Review
 
-TK
+Fixed as recommended in [cf1a0ded961f6c617642bb00ed14e3ca87a7a715](https://github.com/voteagora/optimism-gov/commit/cf1a0ded961f6c617642bb00ed14e3ca87a7a715).
