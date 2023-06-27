@@ -11,6 +11,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [hook protocol](http://hook.xyz/) | hook bid pool (order book for options) | solo | [report](reports/hook.md) |
 | [soundxyz](https://sound.xyz/) | minter v2s | solo | [report](reports/sound2.md) |
 | [nouns agora](https://www.nounsagora.com/) | [alligator](https://github.com/voteagora/liquid-delegator/) (liquid delegation) | solo | [report](reports/alligator.md) |
+| [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | solo | [report](reports/optgov.md) |
 | [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | core (overcollateralized stablecoin) | solo | [report](reports/dyad.pdf) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | solo | [report](reports/dhedge.md) |
 | [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | solo | [report](reports/stakedao.md) |

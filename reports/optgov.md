@@ -31,7 +31,7 @@ The following contracts were in scope:
 - src/modules/VotingModule.sol
 - src/modules/ApprovalVotingModule.sol
 
-After completion of the fixes, the TK commit was reviewed.
+After completion of the fixes, [PR #10](https://github.com/voteagora/optimism-gov/pull/10) was reviewed.
 
 # Summary of Findings
 
