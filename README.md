@@ -5,7 +5,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 ### past audits
 
 | protocol | scope | report |
-| ---- | ---- | ----------- | ---------|
+| ---- | ---- | ---------|
 | [optimism](https://www.optimism.io/) | [bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) (modular rollup architecture) | [report](https://github.com/sherlock-audit/2023-01-optimism-judging) |
 | [olympus](https://www.olympusdao.finance/) | lending amo | [report](reports/olympus-lending-amo.md)
 | [soundxyz](https://sound.xyz/) | SAM (bonding curve for NFTs) | [report](reports/sound.md) |
