@@ -12,7 +12,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | [report](reports/optgov.md) |
 | [astaria](https://astaria.xyz/) | full protocol | [report](reports/astaria.pdf) |
 | [hook protocol](http://hook.xyz/) | hook bid pool (order book for options) | [report](reports/hook.md) |
-| [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | core (overcollateralized stablecoin) | [report](reports/dyad.pdf) |
+| [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | core (overcollateralized stablecoin) | [report](reports/dyad.md) |
 | [soundxyz](https://sound.xyz/) | minter v2s | [report](reports/sound2.md) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | [report](reports/dhedge.md) |
 | [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | [report](reports/stakedao.md) |

@@ -77,7 +77,7 @@ For a simple example, you can walk through the math imagining they are the first
 **Problem 2:** More importantly, the appreciation from rebase() is a percentage, not a fixed value. The result is that, if the deposit() is very large (say, through a flash loan), a user is able to use the insolvency to withdraw the full holdings of the vault. See the Proof of Concept below for an example.
 
 ### Proof of Concept
-```
+```solidity
   function test_CanLiquidateProtocolOnEthMove() public {
     uint id1 = dNft.mint{value: 100 ether}(address(this));
 
@@ -143,7 +143,7 @@ By sorting all dNFTs from lowest balance to highest, an attacker could perform t
 Because internal balances are held by the dNFT rather than the user, this would also have the effect of moving the entire value of the vault to the attacker.
 
 ### Proof of Concept
-```
+```solidity
 function test_CanLiquidateAnyone() public {
     address attacker = makeAddr("attacker");
     vm.deal(attacker, 6000 ether);
@@ -248,7 +248,7 @@ This is especially dangerous because if a user calls both of these functions in 
 ### Recommendation
 
 I would recommend adding a check to the unlock() function to ensure this situation is avoided:
-```
+```solidity
 function unlock(uint id)
 external
     isNftOwner(id)
