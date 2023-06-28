@@ -21,8 +21,8 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 
 | protocol | scope | platform | result | report |
 | ---- | ---- | --------- | --------- | --------- |
-| [optimism](https://www.optimism.io/) | [bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) (modular rollup architecture) | sherlock | 1st place ($199k) | [report](https://github.com/sherlock-audit/2023-01-optimism-judging) |
-| [astaria](https://astaria.xyz/) | full protocol | c4 | 1st place ($100k) | [report](https://code4rena.com/reports/2023-01-astaria) |
+| [optimism](https://www.optimism.io/) | [bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-01-optimism-judging) |
+| [astaria](https://astaria.xyz/) | full protocol | c4 | 1st place | [report](https://code4rena.com/reports/2023-01-astaria) |
 | [0xSplits](https://www.0xsplits.xyz/) | oracle, diversifier, swapper | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-04-splits-judging/) |
 | [blueberry](https://www.blueberry.garden/) | full protocol | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-02-blueberry-judging) |
 | [hats](https://www.hatsprotocol.xyz/) | full protocol | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-02-hats-judging/) |
