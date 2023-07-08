@@ -43,29 +43,29 @@ The following contracts were in scope:
 
 | ID     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
-| C-01 | currentMultiplier is calculated incorrectly, causing up to 86400x discounted issuance | Critical | ✓ |
-| H-01 | Token accounting can be permanently broken by malicious rebalancer | High | ✓ |
-| H-02 | If `feeScaled` is set too high in the constructor, the protocol will be bricked | High | ✓ |
-| H-03 | Fees are sent to vault instead of feeRecipient | High | ✓ |
-| M-01 | First mint could be frontrun to break L1 `totalSupply` calculation | Medium | ✓ |
-| M-02 | Owner can steal all funds locked in bridge by changing `REMOTE_TOKEN` value | Medium |  |
-| M-03 | `proposedOwner` not reset on transfer, allowing ownership to be seized back | Medium |  |
-| M-04 | If bounty is created without all underlying tokens, accounting will be permanently thrown off | Medium | ✓ |
-| M-05 | Authority address can (maliciously or accidentally) steal user funds from the vault | Medium |  |
-| M-06 | Allowing multiple bounties to be live at once creates race condition | Medium | ✓ |
-| M-07 | Vault should have two step ownership transfer | Medium |  |
-| M-08 | Inflation will be overapplied if there is a time period when `totalSupply() == 0` | Medium | ✓ |
-| M-09 | System implicitly relies on off chain oracle | Medium |  |
-| L-01 | Issuer can underpay for AMKT because values are rounded down | Low | ✓ |
-| L-02 | Users can dodge rebalancing costs by sandwiching rebalancer | Low |  |
-| L-03 | System cannot support atypical ERC20s | Low |  |
-| G-01 | Unnecessary ownership transfers in deploy script | Gas |  |
-| G-02 | Bounty can use `lastKnownMultiplier` instead of `multiplier()` to save gas | Gas |  |
-| G-03 | VArray can remove `included` field to save gas | Gas |  |
-| G-04 | `isRestricted` checks can be skipped if `msg.sender` is the minter address | Gas |  |
-| G-05 | `takeOwnership()` function checks can be simplified | Gas |  |
-| I-01 | `deployVault()` function `_indexTokenOwner` argument is misnamed | Informational |  |
-| I-02 | Try catch can be removed from `fulfillBounty()` | Informational |  |
+| [C-01] | currentMultiplier is calculated incorrectly, causing up to 86400x discounted issuance | Critical | ✓ |
+| [H-01] | Token accounting can be permanently broken by malicious rebalancer | High | ✓ |
+| [H-02] | If `feeScaled` is set too high in the constructor, the protocol will be bricked | High | ✓ |
+| [H-03] | Fees are sent to vault instead of feeRecipient | High | ✓ |
+| [M-01] | First mint could be frontrun to break L1 `totalSupply` calculation | Medium | ✓ |
+| [M-02] | Owner can steal all funds locked in bridge by changing `REMOTE_TOKEN` value | Medium |  |
+| [M-03] | `proposedOwner` not reset on transfer, allowing ownership to be seized back | Medium |  |
+| [M-04] | If bounty is created without all underlying tokens, accounting will be permanently thrown off | Medium | ✓ |
+| [M-05] | Authority address can (maliciously or accidentally) steal user funds from the vault | Medium |  |
+| [M-06] | Allowing multiple bounties to be live at once creates race condition | Medium | ✓ |
+| [M-07] | Vault should have two step ownership transfer | Medium |  |
+| [M-08] | Inflation will be overapplied if there is a time period when `totalSupply() == 0` | Medium | ✓ |
+| [M-09] | System implicitly relies on off chain oracle | Medium |  |
+| [L-01] | Issuer can underpay for AMKT because values are rounded down | Low | ✓ |
+| [L-02] | Users can dodge rebalancing costs by sandwiching rebalancer | Low |  |
+| [L-03] | System cannot support atypical ERC20s | Low |  |
+| [G-01] | Unnecessary ownership transfers in deploy script | Gas |  |
+| [G-02] | Bounty can use `lastKnownMultiplier` instead of `multiplier()` to save gas | Gas |  |
+| [G-03] | VArray can remove `included` field to save gas | Gas |  |
+| [G-04] | `isRestricted` checks can be skipped if `msg.sender` is the minter address | Gas |  |
+| [G-05] | `takeOwnership()` function checks can be simplified | Gas |  |
+| [I-01] | `deployVault()` function `_indexTokenOwner` argument is misnamed | Informational |  |
+| [I-02] | Try catch can be removed from `fulfillBounty()` | Informational |  |
 
 Note that, in the process of performing fixes for this audit, the Alongside team decided to pause development of the contracts to think more about the issue raised in M-09. As a result, many of the less serious fixes were not made, and will be performed when development restarts in the future.
 
@@ -469,8 +469,6 @@ There are a number of ways this can be adjusted to ensure this attack is not pos
 ### Review
 
 Fixed as recommended in [PR #82](https://github.com/Alongside-Finance/index-system-v2/pull/82).
-
-TK to double check that fixes are made properly.
 
 ## [M-02] Owner can steal all funds locked in bridge by changing `REMOTE_TOKEN` value
 
