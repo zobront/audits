@@ -16,7 +16,6 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [soundxyz](https://sound.xyz/) | minter v2s | [report](reports/sound2.md) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | [report](reports/dhedge.md) |
 | [sentiment](https://sentiment.xyz/) | 0x & aura controllers | [report](reports/sentiment-0xaura.md) |
-| [alongside](https://alongside.xyz/) | alongside index v2 | [report](reports/alongside.md) |
 | [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | [report](reports/stakedao.md) |
 
 ### contest highlights
