@@ -39,6 +39,8 @@ The following contracts were in scope:
 - src/scripts/MainnetInitialMigration.s.sol
 - src/scripts/OPInitialMigration.s.sol
 
+Note that, in the process of performing fixes for this audit, the Alongside team decided to pause development of the contracts to think more about the issue raised in M-09. As a result, many of the less serious fixes were not made, and will be performed when development restarts in the future.
+
 # Summary of Findings
 
 | ID     | Title                        | Severity      | Fixed |
@@ -66,8 +68,6 @@ The following contracts were in scope:
 | [G-05] | `takeOwnership()` function checks can be simplified | Gas |  |
 | [I-01] | `deployVault()` function `_indexTokenOwner` argument is misnamed | Informational |  |
 | [I-02] | Try catch can be removed from `fulfillBounty()` | Informational |  |
-
-Note that, in the process of performing fixes for this audit, the Alongside team decided to pause development of the contracts to think more about the issue raised in M-09. As a result, many of the less serious fixes were not made, and will be performed when development restarts in the future.
 
 # Detailed Findings
 
@@ -737,9 +737,7 @@ if (bountyHash != hashStore.bountyHash) revert BountyInvalidHash();
 
 ### Review
 
-Fixed as recommended in [PR #79](https://github.com/Alongside-Finance/index-system-v2/pull/79).
-
-TK to check that issues are addressed
+Fixed as recommended in [PR #79](https://github.com/Alongside-Finance/index-system-v2/pull/79) and [PR #80](https://github.com/Alongside-Finance/index-system-v2/pull/80).
 
 ## [M-07] Vault should have two step ownership transfer
 

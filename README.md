@@ -15,6 +15,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [dyad](https://members.delphidigital.io/reports/exploring-dyad-a-new-approach-to-decentralized-stablecoins/#sneak-peek) | core (overcollateralized stablecoin) | [report](reports/dyad.md) |
 | [soundxyz](https://sound.xyz/) | minter v2s | [report](reports/sound2.md) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | [report](reports/dhedge.md) |
+| [alongside](https://alongside.xyz/) | alongside index v2 | [report](reports/alongside.md) |
 | [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | [report](reports/stakedao.md) |
 
 ### contest highlights
