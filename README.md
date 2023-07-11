@@ -7,6 +7,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | protocol | scope | report |
 | ---- | ---- | ---------|
 | [olympus](https://www.olympusdao.finance/) | lending amo | [report](reports/olympus-lending-amo.md)
+| [sablier](https://sablier.finance/) | v2 core | [report](https://github.com/sablier-labs/audits/blob/main/v2-core/cantina-2023-06-08.pdf) |
 | [soundxyz](https://sound.xyz/) | SAM (bonding curve for NFTs) | [report](reports/sound.md) |
 | [nouns agora](https://www.nounsagora.com/) | [alligator](https://github.com/voteagora/liquid-delegator/) (liquid delegation) | [report](reports/alligator.md) |
 | [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | [report](reports/optgov.md) |
