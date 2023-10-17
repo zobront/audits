@@ -34,7 +34,7 @@ The following contracts were in scope:
 - src/owr/OptimisticWithdrawalReceiver.sol
 - src/owr/OptimisticWithdrawalReceiverFactory.sol
 
-After completion of the fixes, the [2f4f059bfd145f5f05d794948c918d65d222c3a9](https://github.com/ObolNetwork/obol-manager-contracts/tree/2f4f059bfd145f5f05d794948c918d65d222c3a9) commit was reviewed. After this review, the updated fee share system in [PR #96](https://github.com/ObolNetwork/obol-manager-contracts/pull/96/files) was reviewed.
+After completion of the fixes, the [2f4f059bfd145f5f05d794948c918d65d222c3a9](https://github.com/ObolNetwork/obol-manager-contracts/tree/2f4f059bfd145f5f05d794948c918d65d222c3a9) commit was reviewed. After this review, the updated Lido fee share system in [PR #96](https://github.com/ObolNetwork/obol-manager-contracts/pull/96/files) was reviewed.
 
 # Summary of Findings
 
