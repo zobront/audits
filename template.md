@@ -1,7 +1,6 @@
 <table>
-    <tr><th></th><th></th></tr>
     <tr>
-        <td><img src="../logos/TK.jpg" width="250" height="250" /></td>
+        <td><img src="INSERT" width="250" height="250" /></td>
         <td>
             <h1>TK Audit Report</h1>
             <h2>TK Description</h2>
