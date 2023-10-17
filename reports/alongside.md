@@ -43,7 +43,7 @@ Note that, in the process of performing fixes for this audit, the Alongside team
 
 # Summary of Findings
 
-| ID     | Title                        | Severity      | Fixed |
+| Identifier     | Title                        | Severity      | Fixed |
 | ------ | ---------------------------- | ------------- | ----- |
 | [C-01] | currentMultiplier is calculated incorrectly, causing up to 86400x discounted issuance | Critical | ✓ |
 | [H-01] | Token accounting can be permanently broken by malicious rebalancer | High | ✓ |
