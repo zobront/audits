@@ -10,6 +10,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [obol](https://obol.tech/) | fee manager | [report](reports/obol.md)
 | [nouns agora](https://www.nounsagora.com/) | [alligator](https://github.com/voteagora/liquid-delegator/) (liquid delegation) | [report](reports/alligator.md) |
 | [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | [report](reports/optgov.md) |
+| [0xsplits](https://www.0xsplits.xyz/) | [chainlink oracle](https://github.com/0xSplits/splits-oracle) | [report](reports/splits-oracle.md) |
 | [astaria](https://astaria.xyz/) | full protocol | [report](reports/astaria.pdf) |
 | [sablier](https://sablier.finance/) | v2 core | [report](reports/sablier-1.pdf) |
 | [sablier](https://sablier.finance/) | [prb proxy](https://github.com/PaulRBerg/prb-proxy/), v2 periphery, nft svgs | [report](reports/sablier-2.pdf) |
