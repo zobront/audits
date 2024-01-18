@@ -12,6 +12,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | [report](reports/optgov.md) |
 | [0xsplits](https://www.0xsplits.xyz/) | [chainlink oracle](https://github.com/0xSplits/splits-oracle) | [report](reports/splits-oracle.md) |
 | [astaria](https://astaria.xyz/) | full protocol | [report](reports/astaria.pdf) |
+| [fungify](https://fungify.it/) | [pools](https://github.com/fungify-dao/taki-contracts) | [report](reports/fungify.md) |
 | [sablier](https://sablier.finance/) | v2 core | [report](reports/sablier-1.pdf) |
 | [sablier](https://sablier.finance/) | [prb proxy](https://github.com/PaulRBerg/prb-proxy/), v2 periphery, nft svgs | [report](reports/sablier-2.pdf) |
 | [soundxyz](https://sound.xyz/) | SAM (bonding curve for NFTs) | [report](reports/sound.md) |
