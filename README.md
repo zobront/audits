@@ -23,6 +23,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [alongside](https://alongside.xyz/) | index v2 & op migration | [report](reports/alongside.md) |
 | [alongside](https://alongside.xyz/) | index v2 pre-deployment | [report](reports/alongside-2.pdf) |
 | [sentiment](https://sentiment.xyz/) | 0x & aura controllers | [report](reports/sentiment-0xaura.md) |
+| [stakedao](https://stakedao.org/) | onlyboost | [report](reports/onlyboost.md) |
 | [stakedao](https://stakedao.org/) | votemarket (curve bribe platform) | [report](reports/stakedao.md) |
 
 ### contest highlights
