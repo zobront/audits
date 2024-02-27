@@ -101,7 +101,7 @@ This problem becomes worse as OnlyBoost becomes more successful. If users move t
 
 ### Recommendation
 
-Since we know the total amount deposited that we are trying to optimize, we can calculate the values before withdrawing in order to get a precise result.
+Since we know the total amount deposited that we are trying to optimize, we can calculate the values before withdrawing in order to get a precise result, which can be used to rebalance.
 
 ### Review
 
