@@ -10,7 +10,8 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [obol](https://obol.tech/) | fee manager | [report](reports/obol.md)
 | [nouns agora](https://www.nounsagora.com/) | [alligator](https://github.com/voteagora/liquid-delegator/) (liquid delegation) | [report](reports/alligator.md) |
 | [optimism governance](https://optimism.io/) | [governor v5 & module system](https://github.com/voteagora/optimism-gov/) | [report](reports/optgov.md) |
-| [0xsplits](https://www.0xsplits.xyz/) | [chainlink oracle](https://github.com/0xSplits/splits-oracle) | [report](reports/splits-oracle.md) |
+| [splits](https://www.0xsplits.xyz/) | [v2](https://github.com/0xSplits/splits-contracts-monorepo/) | [report](reports/splits-v2.md) |
+| [splits](https://www.0xsplits.xyz/) | [chainlink oracle](https://github.com/0xSplits/splits-oracle) | [report](reports/splits-oracle.md) |
 | [astaria](https://astaria.xyz/) | full protocol | [report](reports/astaria.pdf) |
 | [fungify](https://fungify.it/) | [pools](https://github.com/fungify-dao/taki-contracts) | [report](reports/fungify.md) |
 | [sablier](https://sablier.finance/) | v2 core | [report](reports/sablier-1.pdf) |
