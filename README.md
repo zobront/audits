@@ -32,6 +32,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | protocol | scope | platform | result | report |
 | ---- | ---- | --------- | --------- | --------- |
 | [optimism](https://www.optimism.io/) | [bedrock](https://community.optimism.io/docs/developers/bedrock/explainer/) | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-01-optimism-judging) |
+| [vyper compiler](https://vyperlang.org/) | [0.3.10](https://github.com/vyperlang/vyper/tree/v0.3.10) | codehawks | 2nd place | [report](https://www.codehawks.com/report/cll5rujmw0001js08menkj7hc) |
 | [astaria](https://astaria.xyz/) | full protocol | c4 | 1st place | [report](https://code4rena.com/reports/2023-01-astaria) |
 | [0xSplits](https://www.0xsplits.xyz/) | oracle, diversifier, swapper | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-04-splits-judging/) |
 | [blueberry](https://www.blueberry.garden/) | full protocol | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-02-blueberry-judging) |
