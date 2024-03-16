@@ -19,7 +19,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [soundxyz](https://sound.xyz/) | SAM (bonding curve for NFTs) | [report](reports/sound.md) |
 | [soundxyz](https://sound.xyz/) | minter v2s | [report](reports/sound2.md) |
 | [hook protocol](http://hook.xyz/) | hook bid pool (order book for options) | [report](reports/hook.md) |
-| [dyad](https://dyadstable.xyz/) | [report](reports/dyad.md) |
+| [dyad](https://dyadstable.xyz/) | core | [report](reports/dyad.md) |
 | [dhedge](https://www.dhedge.org/) | mta buyback mechanism | [report](reports/dhedge.md) |
 | [alongside](https://alongside.xyz/) | index v2 & op migration | [report](reports/alongside.md) |
 | [alongside](https://alongside.xyz/) | index v2 pre-deployment | [report](reports/alongside-2.pdf) |
@@ -38,6 +38,14 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 | [blueberry](https://www.blueberry.garden/) | full protocol | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-02-blueberry-judging) |
 | [hats](https://www.hatsprotocol.xyz/) | full protocol | sherlock | 1st place | [report](https://github.com/sherlock-audit/2023-02-hats-judging/) |
 | [y2k finance](https://www.y2k.finance/) | full protocol | c4 | 1st place | [report](https://code4rena.com/reports/2022-09-y2k-finance) |
+
+### bounties
+
+| protocol | severity | details |
+| ---- | ---- | --------- | --------- | --------- |
+| [chainlink vrf](https://docs.chain.link/vrf) | critical | [article](https://cryptoslate.com/chainlink-vrf-vulnerability-thwarted-by-white-hat-hackers-with-300k-reward/) |
+| will add the rest shortly | | |
+
 
 ### availability
 
