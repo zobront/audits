@@ -42,7 +42,7 @@ this repo holds a selection of recent auditing projects i've done that can be sh
 ### bounties
 
 | protocol | severity | details |
-| ---- | ---- | --------- | --------- | --------- |
+| ---- | ---- | --------- |
 | [chainlink vrf](https://docs.chain.link/vrf) | critical | [article](https://cryptoslate.com/chainlink-vrf-vulnerability-thwarted-by-white-hat-hackers-with-300k-reward/) |
 | will add the rest shortly | | |
 
