@@ -6,7 +6,7 @@
             <h1>Succinct Audit Report</h1>
             <h2>OP Succinct ZKL2OutputOracle</h2>
             <p>Prepared by: Zach Obront, Independent Security Researcher</p>
-            <p>Date: Monday August 19th, 2023</p>
+            <p>Date: Monday August 19th, 2024</p>
         </td>
     </tr>
 </table>
